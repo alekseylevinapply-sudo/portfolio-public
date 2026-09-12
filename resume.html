@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Резюме Алексея Лёвина: Java Backend Engineer. Java/Spring, enterprise-интеграции, платежи и production-системы.">
+  <meta name="color-scheme" content="dark light">
+  <title>Резюме — Алексей Лёвин</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="resume-page">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <header class="container site-header">
+    <a class="wordmark" href="index.html" aria-label="На главную страницу портфолио">АЛ<span> / портфолио</span></a>
+    <nav aria-label="Навигация резюме"><a href="index.html#experience">Опыт на сайте</a><a href="resume.md" download="Alexey-Levin-Resume.md">Скачать .md ↓</a></nav>
+  </header>
+  <main id="main" class="container resume-document">
+    <div class="resume-heading">
+      <p class="eyebrow">РЕЗЮМЕ</p>
+      <h1>Алексей Лёвин</h1>
+      <p class="resume-position">Java Backend Engineer</p>
+      <p>20+ лет в IT · Java/backend с 2016 года</p>
+      <p class="resume-github"><a href="https://github.com/alekseylevinapply-sudo">GitHub: alekseylevinapply-sudo</a></p>
+      <p><a href="https://t.me/aleksey_y_levin">Telegram: @aleksey_y_levin</a></p>
+      <p class="print-hint">Для печати или сохранения в PDF используйте функцию «Печать» в браузере.</p>
+    </div>
+    <section class="resume-section" aria-labelledby="summary-title">
+      <h2 id="summary-title">Профиль</h2>
+      <p>Разрабатываю и поддерживаю backend на Java и Spring. Работал с банковскими платежами, страховыми процессами, телематикой и обменом данными между системами. Участвую в проектировании, пишу код и тесты, провожу code review и разбираю production-инциденты. Использую AI-инструменты для кода, тестов и документации, проверяю результаты.</p>
+    </section>
+    <section class="resume-section" aria-labelledby="skills-title">
+      <h2 id="skills-title">Технологии</h2>
+      <dl class="resume-skills">
+        <dt>Backend</dt>
+        <dd>Java 8–21, Spring Boot 2/3, Spring Framework, Spring Cloud, Spring MVC, Spring Data, Spring Security, Spring Batch, MapStruct. Maven — основной инструмент сборки, Gradle — дополнительный.</dd>
+        <dt>Базы данных</dt>
+        <dd>PostgreSQL, Oracle, jOOQ, Hibernate/JPA, SQL, Liquibase, Flyway. Оптимизация запросов, транзакции и миграции данных.</dd>
+        <dt>Интеграции</dt>
+        <dd>Kafka, JMS/Artemis, Apache Camel, REST, SOAP, WSDL/XSD, XML-RPC, OpenAPI/Swagger, Feign.</dd>
+        <dt>Workflow</dt>
+        <dd>Camunda 7, Flowable/Activiti, BPMN. Оркестрация процессов, Saga, статусы операций и компенсации.</dd>
+        <dt>Надёжность</dt>
+        <dd>Идемпотентность, retry/backoff, DLQ, transactional outbox, circuit breaker, bulkhead, rate limiting и backpressure.</dd>
+        <dt>Тестирование</dt>
+        <dd>JUnit 4/5, Mockito, AssertJ, Testcontainers, WireMock, MockMvc, Spring Test, Postman, SoapUI. Модульные и интеграционные тесты.</dd>
+        <dt>Runtime и CI/CD</dt>
+        <dd>Docker, Kubernetes, OpenShift, Helm, Jenkins, GitLab CI, Azure DevOps/TFS, Linux, Bash.</dd>
+        <dt>Мониторинг</dt>
+        <dd>Prometheus, Grafana, ELK, Loki, структурированные логи, correlationId. Диагностика инцидентов, GC-анализ и tcpdump.</dd>
+        <dt>Архитектура</dt>
+        <dd>Модульный монолит, Clean Architecture, элементы DDD, событийное взаимодействие, границы сервисов и контракты интеграций.</dd>
+        <dt>AI в разработке</dt>
+        <dd>AI-assisted development: Codex, OpenClaw, OpenRouter/Kimi. Агентные рабочие процессы, версионирование промптов и спецификаций, проверка кода и результатов. Изучаю Spring AI, LangChain и LangGraph.</dd>
+      </dl>
+    </section>
+    <section class="resume-section" aria-labelledby="work-title">
+      <h2 id="work-title">Опыт работы</h2>
+      <article class="resume-job">
+        <p class="period">2025 — 2026</p>
+        <h3>Проект Ингосстраха</h3>
+        <p class="role">Старший инженер-программист</p>
+        <ul>
+          <li>Доработка backend-сервисов Legal Case Microservices Platform на Java 17 и Spring Boot.</li>
+          <li>Участие в запуске в production, миграциях данных и юридических процессов в Camunda 7.</li>
+          <li>Разбор инцидентов, развёртывание и мониторинг: Kubernetes, TFS/Azure DevOps.</li>
+        </ul>
+      </article>
+      <article class="resume-job">
+        <p class="period">2023 — 2024</p>
+        <h3>Иннотех / ВТБ</h3>
+        <p class="role">Эксперт Java-разработчик</p>
+        <ul>
+          <li>Работа над оркестратором B2B-платежей в составе команды в рамках импортозамещения банковских систем. Пиковая нагрузка всего контура из четырёх сервисов — около 1000 RPS.</li>
+          <li>Разработка компонентов модульного монолита с Clean Architecture и элементами DDD. В ходе развития проекта из него выделены отдельные сервисы.</li>
+          <li>Участие в BPMN-процессах Camunda 7: Saga/process orchestration, статусы операций, idempotency keys, ретраи с exponential backoff, компенсации и transactional outbox; интеграции с платёжными и банковскими сервисами.</li>
+          <li>Декомпозиция задач, code review, участие в технических собеседованиях, обсуждение технических решений и помощь коллегам при подключении к проекту. Java 17–21, Spring Boot, Camunda 7, Kafka/Artemis, PostgreSQL, jOOQ, Liquibase, Kubernetes/OpenShift.</li>
+        </ul>
+      </article>
+      <article class="resume-job">
+        <p class="period">2020 — 2023</p>
+        <h3>Сбербанк Лизинг</h3>
+        <p class="role">Архитектор Java / Solution Architect</p>
+        <ul>
+          <li>Спроектировал два Java-сервиса с нуля, один реализовал полностью при переходе от Dynamics NAV.</li>
+          <li>Телематический сервис: около 50 параметров со 100 000 устройств, опрос раз в сутки. Batch/ETL на Spring Batch; задачи отчётности, выбора поставщиков и оркестрации заявок.</li>
+          <li>Внедрение событийного обмена вместо long polling, transactional outbox и rate limiting. Kafka, MinIO/S3, PostgreSQL.</li>
+          <li>Настройка GitLab CI, Helm, Kubernetes и мониторинга вместе с командой. Несколько экземпляров сервисов в кластере из 3 нод; ELK, Prometheus/Grafana и сопровождение в production.</li>
+        </ul>
+      </article>
+      <article class="resume-job">
+        <p class="period">2018 — 2020</p>
+        <h3>ЮТэйр</h3>
+        <p class="role">Старший Java-разработчик</p>
+        <ul>
+          <li>Работа в команде интеграционной платформы: около 100 потоков между примерно 20 системами. Разработка Java-сервисов, маршрутов Apache Camel и обработчиков Kafka.</li>
+          <li>Преобразование XML/JSON, интеграции по REST/SOAP и тестирование сценариев обмена данными.</li>
+          <li>Работа с Kafka topics, consumer groups, порядком сообщений в партиции, lag/offsets, manual commit, DLQ, retry/redelivery и throttling внешних API.</li>
+          <li>Разбор production-инцидентов, включая утечки памяти и соединений в омниканальном чате: GC-анализ, tcpdump, ELK/Prometheus.</li>
+          <li>Участие в переходе к Docker/Kubernetes, работа с BPMN и Flowable/Activiti, наставничество младших Java-разработчиков.</li>
+        </ul>
+      </article>
+      <article class="resume-job">
+        <p class="period">2016 — 2018</p>
+        <h3>Проект Московской биржи</h3>
+        <p class="role">Java-разработчик</p>
+        <ul>
+          <li>Интеграции клиентского кабинета, автоматизация заявок на доступ к торговым системам и изменения клиентской базы данных.</li>
+          <li>SOAP, REST и XML-RPC интеграции. Java 8, Spring Framework, Oracle, JPA, JSF/PrimeFaces, Tomcat 7–8, Jenkins, Jira/Confluence.</li>
+        </ul>
+      </article>
+      <article class="resume-job">
+        <p class="period">2014 — 2016</p>
+        <h3>ЦУМ, ТД</h3>
+        <p class="role">Системный администратор Linux</p>
+        <ul>
+          <li>Администрирование Linux-инфраструктуры кассовых узлов и серверов торговой сети, сопровождение Linux/PostgreSQL.</li>
+          <li>Мониторинг, Bash-автоматизация, диагностика и устранение инцидентов.</li>
+          <li>Стек: Linux, PostgreSQL, Bash, SSH, Zabbix.</li>
+        </ul>
+      </article>
+      <article class="resume-job">
+        <p class="period">2012 — 2014</p>
+        <h3>LEFUTUR</h3>
+        <p class="role">Системный администратор</p>
+        <ul>
+          <li>Техническая поддержка пользователей офиса и магазинов, сопровождение офисного и кассового оборудования.</li>
+          <li>Администрирование Windows-серверов и рабочих станций, решение инцидентов.</li>
+          <li>Стек: Windows Server, PowerShell, RDP, SSH, Bash, TeamViewer, 1С.</li>
+        </ul>
+      </article>
+    </section>
+    <section class="resume-section" aria-labelledby="education-title">
+      <h2 id="education-title">Образование и языки</h2>
+      <p>Московский Математический Колледж, 2007.<br> Программирование, программное обеспечение ВТ и АС.</p>
+      <p>Русский — родной. Английский — B1, чтение документации и переписка.</p>
+    </section>
+  </main>
+  <footer class="container site-footer"><a href="index.html">← Вернуться в портфолио</a><a href="resume.md" download="Alexey-Levin-Resume.md">Скачать резюме .md</a></footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+dist/
+.preview/
+.playwright-cli/
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+*.bak
+*.zip
+.DS_Store
+Thumbs.db

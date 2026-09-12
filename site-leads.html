@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Контур Сервис — собственный проект Алексея Лёвина: форма WordPress, сделки в amoCRM, уведомления Telegram и панель оператора.">
+  <meta name="color-scheme" content="dark">
+  <title>Контур Сервис — WordPress, amoCRM и Telegram · Алексей Лёвин</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <header class="container site-header">
+    <a class="wordmark" href="index.html" aria-label="На главную страницу портфолио">АЛ<span> / портфолио</span></a>
+    <nav aria-label="Навигация проекта"><a href="index.html">Портфолио</a><a href="#screenshots">Снимки</a><a href="index.html#contact">Контакты</a></nav>
+  </header>
+  <main id="main" class="container">
+    <section class="case-hero" aria-labelledby="case-title">
+      <div>
+        <p class="eyebrow">САЙТЫ И АВТОМАТИЗАЦИЯ</p>
+        <h1 id="case-title">Контур Сервис</h1>
+        <p class="lead">WordPress, amoCRM и Telegram.<br>От формы до сделки и уведомления.</p>
+        <p class="case-summary">Собственный проект: сайт с редактируемыми страницами, форма обращения и доставка заявок в CRM и Telegram. При сбое одного канала обращение остаётся на сайте, а результат отправки виден оператору.</p>
+        <ul class="tags" aria-label="Технологии проекта"><li>WordPress</li><li>amoCRM API</li><li>Telegram Bot API</li><li>PHP</li><li>MariaDB</li><li>Docker Compose</li></ul>
+        <p><a class="text-link" href="https://github.com/alekseylevinapply-sudo/wordpress-site-leads">Исходники и инструкция запуска на GitHub ↗</a></p>
+      </div>
+      <figure class="case-cover">
+        <a href="site-leads-home.png" aria-label="Открыть полный снимок главной страницы"><img src="site-leads-home.png" alt="Главная страница Контур Сервис: оборудование, услуги и переход к форме обращения" width="1440" height="2199"></a>
+        <figcaption>Главная страница. Нажмите на снимок, чтобы рассмотреть его целиком.</figcaption>
+      </figure>
+    </section>
+    <section class="section" aria-labelledby="flow-title">
+      <p class="eyebrow">ОСНОВНОЙ СЦЕНАРИЙ</p>
+      <h2 id="flow-title">Заявка сохранена. Доставка проверяется отдельно.</h2>
+      <ol class="case-flow">
+        <li><span class="number">01 / ПОСЕТИТЕЛЬ</span><h3>Оставляет заявку</h3><p>Выбирает услугу и описывает задачу. Форма проверяет поля и после сохранения показывает номер обращения.</p></li>
+        <li><span class="number">02 / CRM И TELEGRAM</span><h3>Получают данные</h3><p>В amoCRM создаётся сделка с данными обращения, в Telegram приходит уведомление. У каждого канала своя очередь и история попыток.</p></li>
+        <li><span class="number">03 / ОПЕРАТОР</span><h3>Ведёт обращение</h3><p>Меняет статус, добавляет комментарий и проверяет результат доставки. При ошибке может повторить отправку после сверки с внешним сервисом.</p></li>
+      </ol>
+    </section>
+    <section class="section case-details" aria-labelledby="implementation-title">
+      <div><p class="eyebrow">РЕАЛИЗАЦИЯ</p><h2 id="implementation-title">CMS и серверная логика.</h2><p class="case-summary">Пять адаптивных страниц и три услуги. Тексты, услуги и изображение редактируются через штатную CMS WordPress.</p></div>
+      <ul class="case-list">
+        <li>Форма с серверной валидацией и защитой от повторной отправки одного запроса.</li>
+        <li>Панель заявок с поиском, фильтром по статусу, пагинацией и историей изменений.</li>
+        <li>Разделение прав оператора и администратора; защита от одновременной перезаписи обращения.</li>
+        <li>Заявка и задания CRM и Telegram сохраняются в одной транзакции. Отправка выполняется после сохранения.</li>
+        <li>Одна сделка amoCRM: идентификатор заявки, контакт, услуга и описание в четырёх дополнительных полях. Перед созданием выполняются поиск и точная сверка идентификатора.</li>
+        <li>Ограниченные повторы при временных сбоях. Если результат отправки неизвестен, автоматические повторы останавливаются до проверки оператором.</li>
+        <li>Запуск сайта, базы данных и служебных процессов через Docker Compose.</li>
+      </ul>
+    </section>
+    <section id="screenshots" class="section" aria-labelledby="screenshots-title">
+      <p class="eyebrow">ИНТЕРФЕЙС В РАБОТЕ</p>
+      <h2 id="screenshots-title">Форма, CMS и панель оператора.</h2>
+      <p class="section-intro">Реальные кадры локального приложения с тестовыми данными. На снимках показаны разные обращения и сценарии. Каждый снимок можно открыть целиком.</p>
+      <div class="case-gallery">
+        <figure><a href="site-leads-form.png" aria-label="Открыть снимок мобильной формы"><img src="site-leads-form.png" alt="Форма обращения на экране телефона" loading="lazy"></a><figcaption><strong>Форма на телефоне.</strong> Выбор услуги, описание задачи и проверка полей.</figcaption></figure>
+        <figure><a href="site-leads-accepted.png" aria-label="Открыть снимок принятой заявки"><img src="site-leads-accepted.png" alt="Подтверждение приёма обращения с номером заявки" loading="lazy"></a><figcaption><strong>Заявка принята.</strong> Посетитель получает номер сохранённого обращения.</figcaption></figure>
+        <figure><a href="site-leads-cms.png" aria-label="Открыть снимок редактора WordPress"><img src="site-leads-cms.png" alt="Редактирование страницы через штатную CMS WordPress" loading="lazy"></a><figcaption><strong>Редактирование материалов.</strong> Страницы и контент доступны в CMS.</figcaption></figure>
+        <figure><a href="site-leads-operator.png" aria-label="Открыть снимок панели оператора"><img src="site-leads-operator.png" alt="Панель оператора с сохранённой заявкой, историей и отдельной ошибкой уведомления" loading="lazy"></a><figcaption><strong>Ошибка канала.</strong> Обращение сохранено; результат доставки и повтор уведомления доступны отдельно.</figcaption></figure>
+        <figure class="case-crm"><a href="site-leads-crm.png" aria-label="Открыть снимок состояний CRM и Telegram"><img src="site-leads-crm.png" alt="Панель локального стенда: отдельные состояния и история отправки в CRM и Telegram" width="1440" height="1814" loading="lazy"></a><figcaption><strong>Два канала доставки.</strong> Панель локального стенда с тестовыми данными. На этом кадре оба канала работают с имитаторами; видны отдельные состояния и история попыток.</figcaption></figure>
+      </div>
+    </section>
+    <section class="section case-details" aria-labelledby="checks-title">
+      <div><p class="eyebrow">ПРОВЕРКИ</p><h2 id="checks-title">Проверены и обычный сценарий, и отказы.</h2></div>
+      <div class="case-copy"><p>Связка проверена с реальной amoCRM и собственным Telegram-чатом. Тестовая заявка из обычной формы создала сделку с четырьмя полями; сообщение проверено в Telegram, поля — через API и интерфейс CRM. Повтор формы вернул существующее обращение без новых заданий доставки.</p><p>Проверен операторский повтор после отказа CRM: уведомление Telegram было доставлено независимо, затем заявка успешно поступила в CRM. Поиск по идентификатору вернул одну сделку.</p><p>Локально пройдены 52 модульные и 42 интеграционные проверки с MariaDB, 8 браузерных сценариев Playwright. Проверены права, повторные запросы, редактирование CMS, ошибки и неопределённый результат отправки. Отдельно проверены сохранность обеих очередей после перезапуска и запрет отправки в режиме просмотра.</p></div>
+    </section>
+    <section class="section case-details" aria-labelledby="scope-title">
+      <div><p class="eyebrow">ОБЪЁМ ПРОЕКТА</p><h2 id="scope-title">Одна форма и два канала.</h2></div>
+      <div class="case-copy"><p>Проверен один сайт WordPress, один кабинет amoCRM с основной воронкой, один Telegram-бот и чат. Контакт хранится в поле сделки; отдельная карточка контакта не создаётся. Двусторонняя синхронизация и перенос старых обращений не входят в этот сценарий.</p><p>Поиск и создание сделки — отдельные запросы. После неопределённого ответа нужна сверка; полного отсутствия дублей при любых внешних сбоях проект не обещает.</p><p>Здесь размещены описание и снимки. Рабочий WordPress запускается отдельно по инструкции в репозитории; для внешних каналов нужны собственные доступы к сервисам.</p></div>
+    </section>
+    <details class="case-credits"><summary>Источники изображений</summary><p>Снимки собственного приложения сделаны Playwright. Фото оборудования: Alf van Beem, <a href="https://commons.wikimedia.org/wiki/File:HVAC_Air_Handler_Unit,_pic1.JPG">HVAC Air Handler Unit, pic1.JPG</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Интерфейс CMS — <a href="https://wordpress.org/about/license/">WordPress, GPLv2 или более поздняя версия</a>.</p></details>
+  </main>
+  <footer class="container site-footer"><a href="index.html">← Вернуться в портфолио</a><a href="https://t.me/aleksey_y_levin">Telegram: @aleksey_y_levin</a></footer>
+</body>
+</html>

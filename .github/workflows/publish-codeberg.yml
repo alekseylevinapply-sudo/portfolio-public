@@ -1,0 +1,39 @@
+name: Publish Codeberg Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codeberg-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'alekseylevinapply-sudo/portfolio-public' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Build reviewed public files
+        run: node scripts/build.mjs
+      - name: Check content and links
+        run: node scripts/check.mjs
+      - name: Publish to Codeberg
+        id: deploy
+        env:
+          CODEBERG_PAGES_DEPLOY_KEY: ${{ secrets.CODEBERG_PAGES_DEPLOY_KEY }}
+        run: bash scripts/publish-codeberg.sh
+      - name: Verify public website
+        if: steps.deploy.outputs.verify == 'true'
+        run: node scripts/verify-deployment.mjs
